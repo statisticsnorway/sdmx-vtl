@@ -143,7 +143,7 @@ parameterItem
     
 callFunction
   :
-  operatorID '(' ((constant|'_') (',' (constant|'_'))*)? ')'
+  operatorID '(' ((IDENTIFIER|constant|'_') (',' (IDENTIFIER|constant|'_'))*)? ')'
   ;   
 
 /* Functions */
