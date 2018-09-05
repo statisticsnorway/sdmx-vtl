@@ -264,13 +264,14 @@ STRING_CONSTANT
 
 IDENTIFIER
   :
-  LETTER
+   (LETTER
   (
     LETTER
     | '_'
     | '.'
     | '0'..'9'
-  )*
+  )* )
+  | ('\'' (.)*? '\'' )
   ;
 
   DIGITS0_9
