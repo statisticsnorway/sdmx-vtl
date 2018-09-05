@@ -1,6 +1,5 @@
 package org.sdmx.vtl;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.File;
@@ -16,11 +15,11 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
-public class NegativeTests extends ParserTest {
+public class ComplexTests extends ParserTest {
 
 	private String expression;
 
-	public NegativeTests(String expression) {
+	public ComplexTests(String expression) {
 		super();
 		this.expression = expression;
 	}
@@ -29,9 +28,8 @@ public class NegativeTests extends ParserTest {
 	public void test() throws Exception {
 		try {
 			parseVtlString(expression);
-			fail("This looks valid: ".concat(expression));
 		} catch (Exception e) {
-			assertTrue(true);
+			fail(expression.concat(" due to: ").concat(e.getMessage()));
 		}
 	}
 
@@ -40,7 +38,7 @@ public class NegativeTests extends ParserTest {
 		ArrayList<String> data = new ArrayList();
 		try {
 			// Input file that will be parsed and create VTL expressions delimited by two consecutive new lines
-			LineIterator it = FileUtils.lineIterator(new File("src/test/resources/NegativeTests.vtl"), "UTF-8");
+			LineIterator it = FileUtils.lineIterator(new File("src/test/resources/ComplexTests.vtl"), "UTF-8");
 			try {
 				String vtlExpr = "";
 				while (it.hasNext()) {

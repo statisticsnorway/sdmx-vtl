@@ -35,3 +35,20 @@ In order to run the jUnit tests from the command line, the surefire maven plugin
 For testing only specific tests, you may use the -Dtest parameter. For example, testing only the negative tests:
 
 `$ mvn test -Dtest=NegativeTests`
+
+### Building an executable and running tests on terminal
+In order to build a single `.jar` executable, all you need is to run the following:
+
+`$ mvn clean compile assembly:single`
+
+This will create a `.jar` file with the required Antlr4 dependencies. If you cannot run maven, see the target folder for the latest version of this `.jar`.
+
+Following that you may run the standalone `.jar` by:
+
+`$ java -cp target/ebnf-1.0.0-jar-with-dependencies.jar org.antlr.v4.gui.TestRig org.sdmx.vtl.Vtl start -gui`
+
+This uses the Antlr4 TestRig class which validates any expression in the input and generates a graphical tree of this expression. Following that, you may insert a VTL expression and then press Ctrl+D. This will validate the expression and generate a graphical tree.
+
+Alternatively, you may provide a file with VTL expressions as the last argument, i.e.:
+
+`$ java -cp target/ebnf-1.0.0-jar-with-dependencies.jar org.antlr.v4.gui.TestRig org.sdmx.vtl.Vtl start vtl-expressions.txt`

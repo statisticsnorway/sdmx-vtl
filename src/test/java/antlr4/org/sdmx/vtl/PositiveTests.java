@@ -53,6 +53,10 @@ public class PositiveTests extends ParserTest {
 						vtlExpr = vtlExpr.concat(line).concat("\n");
 					}
 				}
+				if (!vtlExpr.equals("")) {
+					// adding last expression
+					data.add(vtlExpr);
+				}
 			} catch (Exception e) {
 				System.err.println(e);
 			} finally {
