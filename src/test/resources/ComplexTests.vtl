@@ -1,5 +1,3 @@
-A:=-2;
-
 // Need to add space before number being extracted, because they are considered as one token otherwise (e.g. -1 is a token and not the extraction of 1)
 CurTable:= substr(InputFile, instr(InputFile, "_", 1, 1) + 1, instr(InputFile, "_", 1, 2) - instr(InputFile, "_", 1, 1) - 1);
 
